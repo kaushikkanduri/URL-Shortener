@@ -29,10 +29,18 @@ async function getUrlfromId(req,res){
     return res.redirect(urlObject.redirectUrl);
 }
 
-
+async function getAnalyticsfromId(req,res){
+    const id = req.params.id;
+    const obj = await URL.findOne({shortId : id});
+    return res.json({noOfClicks : obj.visitHistory.length,
+                     CreatedAt : obj.createdAt.toLocaleString("en-GB"),
+                     analytics : obj.visitHistory
+    })
+}
 
 
 module.exports = {
     generateShortId,
-    getUrlfromId
+    getUrlfromId,
+    getAnalyticsfromId
 };
