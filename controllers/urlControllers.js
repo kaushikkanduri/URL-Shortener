@@ -17,7 +17,22 @@ async function generateShortId(req,res){
     return res.status(201).json({msg:`Short-ID : ${shortId}`});
 }
 
+async function getUrlfromId(req,res){
+    const id = req.params.id;
+    const urlObject = await URL.findOneAndUpdate({shortId: id},
+        {$push : {visitHistory : {visitedAt : new Date()}}},
+        {new:true}
+    );
+    if(!urlObject){
+        return res.status(404).send(`ID : ${id} not found.`);
+    }    
+    return res.redirect(urlObject.redirectUrl);
+}
+
+
+
 
 module.exports = {
-    generateShortId
+    generateShortId,
+    getUrlfromId
 };

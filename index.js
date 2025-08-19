@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const UrlRoute = require("./routes/urlRoutes")
+const UrlRoute = require("./routes/urlRoutes");
 const PORT = 8000;
 
 //Middleware
@@ -16,5 +16,5 @@ mongoose.connect("mongodb://127.0.0.1:27017/short-url")
 app.get('/',(req,res)=> res.send("Welcome to Homepage"));
 app.use('/url',UrlRoute);
 
-app.get('/:id',)
+
 app.listen(PORT,()=> console.log(`Server running on PORT : ${PORT}`));
