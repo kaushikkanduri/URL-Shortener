@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>User Login</h1>
+    <form action="/user/login" method="POST">
+        <div>
+            <label for="email">Email-ID :</label>
+            <input type="email" id="email" name="email" placeholder="Spongebob@gmail.com" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="password">password:</label>
+            <input type="password" id="password" name="password" placeholder="********" required>
+        </div>
+        <br>
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
